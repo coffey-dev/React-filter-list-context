@@ -1,19 +1,16 @@
-// Componente de presentación
+import SearchInput from '../form/SearchInput';
+import ListItem from './ListItem';
 
-import SearchInput from "../form/SearchInput";
-
-function ListView({elements, funcFilterItems}){
-    return (
-        <div>
-            <SearchInput funcFilterItems={funcFilterItems} />
-            <ul>
-            { 
-            elements.map((nombre, index) => nombre && <li key={index}>{nombre}</li>)
-            }
-            </ul>
-        </div>
-    )
-
+function ListView({ items, filterItems }){
+  if (!items) return <p>Cargando...</p>
+  return (
+    <div>
+      <SearchInput />
+      <ul>
+        {items.map((item, index) => (item && <ListItem key={index} item={item} />) )}
+      </ul>
+    </div>
+  )
 }
 
 export default ListView;

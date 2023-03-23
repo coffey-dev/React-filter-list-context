@@ -1,11 +1,18 @@
-import List from "./list/List"
+import { ItemsProvider } from "./contexts/ItemsContext";
+import { SearchProvider } from "./contexts/SearchContext";
+import './App.css'
+import List from './list/List'
 
 function App() {
- 
 
   return (
     <div className="App">
-      <List />
+      <SearchProvider>
+        <ItemsProvider>
+          <List />
+        </ItemsProvider>
+      </SearchProvider>
+     
     </div>
   )
 }
