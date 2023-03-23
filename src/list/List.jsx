@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { SearchContext } from "../contexts/SearchContext";
 import frameworksList from "./items";
 import ListView from "./ListView";
 
-
+// Problema de Prop Drilling: un componente recibe un prop que no es para su propio uso, sino para pasarselo a otro componente hijo.
+// Context permite pasar props sin seguir el orden de las jerarquías.
 // Componentes contenedor (el que maneja los datos)
 
 function List() {
@@ -34,7 +36,9 @@ function filterItemsBySearchItems(searchPattern){
 }
 
   return (
+    <SearchContext.Provider value={ {filterItems:} }>
     <ListView elements={items} funcFilterItems={filterItems} />
+    </SearchContext.Provider>
   )
  
 }

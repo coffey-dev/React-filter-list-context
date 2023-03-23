@@ -1,13 +1,13 @@
 // Componente de presentación
 
+import SearchInput from "../form/SearchInput";
+
 function ListView({elements, funcFilterItems}){
     return (
         <div>
-            <input type="text" onChange = {ev => funcFilterItems(ev.target.value)} />
+            <SearchInput funcFilterItems={funcFilterItems} />
             <ul>
-            {
-
-        
+            { 
             elements.map((nombre, index) => nombre && <li key={index}>{nombre}</li>)
             }
             </ul>
